@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+    <h3>Name: {{ product.name }}</h3>
+
+    <h3>Description: {{ product.description }}</h3>
+    <h3>Category: {{ product.category }}</h3>
+{% endblock %}

@@ -5,3 +5,8 @@ homepage:
 category:
     path: /category-{id}
     controller: App\Controller\DefaultController::category
+
+product:
+    path: /product-{id}
+    controller: App\Controller\DefaultController::product
+

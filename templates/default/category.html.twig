@@ -4,4 +4,9 @@
 
 {% block body %}
     <h1>{{ category.name }}</h1>
+    <ul>
+        {% for product in products %}
+            <li><a href="{{ path('product', {id: product.id}) }}">{{ product.name }}</a> </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
