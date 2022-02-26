@@ -13,7 +13,7 @@ class DefaultController extends AbstractController
     public function homepage(EntityManagerInterface $em, Request $request): Response
     {
         $cr = $em->getRepository('App:Category');
-        $categories = $cr->findAll();
+        $categories = $cr->findBy(['Parent' => null], ['position' => 'DESC']);
 
         return $this->render('default/index.html.twig', [
            'categories' => $categories,

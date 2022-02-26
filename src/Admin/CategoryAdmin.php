@@ -24,7 +24,7 @@ final class CategoryAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $list): void
     {
         $list
-            ->add('id')
+           // ->add('id')
             ->add('name')
             ->add(ListMapper::NAME_ACTIONS, null, [
                 'actions' => [
