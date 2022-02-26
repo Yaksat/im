@@ -26,6 +26,12 @@ class Category
     private $name;
 
     /**
+     * @Gedmo\SortablePosition
+     * @ORM\Column(type="integer")
+     */
+    private $position;
+
+    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
@@ -122,14 +128,14 @@ class Category
     }
 
     /**
-     * @return Collection<int, self>
+     * @return Collection<int, Category>
      */
     public function getChildren(): Collection
     {
         return $this->Children;
     }
 
-    public function addChild(self $child): self
+    public function addChild(Category $child): self
     {
         if (!$this->Children->contains($child)) {
             $this->Children[] = $child;
@@ -139,7 +145,7 @@ class Category
         return $this;
     }
 
-    public function removeChild(self $child): self
+    public function removeChild(Category $child): self
     {
         if ($this->Children->removeElement($child)) {
             // set the owning side to null (unless already changed)
@@ -189,6 +195,18 @@ class Category
                 $product->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(int $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }
