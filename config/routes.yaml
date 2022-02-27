@@ -10,3 +10,6 @@ product:
     path: /product-{id}
     controller: App\Controller\DefaultController::product
 
+api_list:
+    path: /api/list
+    controller: App\Controller\ApiController::list
